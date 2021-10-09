@@ -126,7 +126,7 @@ elseif game.PlaceId == 6276776106 then
                 end
             end
  
-local A_1 = game:GetService("Players")["Sleepy_Thug"]
+local A_1 = game:GetService("Players")
 local Event = game:GetService("ReplicatedStorage").Remotes.ChangeLevelEvent
 Event:FireServer(A_1)
 
