@@ -6,10 +6,10 @@ if game.PlaceId == 3101667897 then
     local Main = Window:NewTab("Main")
     local MainSection = Main:NewSection("Main")
  
-    MainSection:NewToggle("Auto farm levels", "Make your player autoswing", function(v)
-        getgenv().autoswing = v
+    MainSection:NewToggle("Auto farm levels", "Levels up", function(v)
+        getgenv().levelfarm = v
         while true do
-            if not getgenv().autoswing then return end
+            if not getgenv().levelfarm then return end
             for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if v:FindFirstChild("ninjitsuGain") then
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
@@ -27,10 +27,10 @@ game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
         end
     end)
  
-    MainSection:NewToggle("Auto buy pets", "Makes your player autosell", function(v)
-        getgenv().autosell = v
+    MainSection:NewToggle("Auto buy pets", "Get's pets", function(v)
+        getgenv().petfarm = v
         while true do
-            if not getgenv().autosell then return end
+            if not getgenv().petfarm then return end
             local A_1 = "Auto buy pets"
 local args = {
     [1] = "openCrystal",
@@ -44,10 +44,10 @@ game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpa
     end)
  
     
-    MainSection:NewToggle("Auto farm diamonds", "Auto buys all swords", function(v)
-        getgenv().buyswords = v
+    MainSection:NewToggle("Auto farm diamonds", "Get's diamonds", function(v)
+        getgenv().diamondfarm = v
         while true do
-            if not getgenv().buyswords then return end
+            if not getgenv().diamondfarm then return end
             local A_1 = "AUTO FARM DIAMONDS"
 local args = {
     [1] = "collectOrb",
@@ -61,10 +61,10 @@ game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
         end
     end)
  
-    MainSection:NewToggle("Auto farm all", "swords", function(v)
-        getgenv().buybelts = v
+    MainSection:NewToggle("Auto farm all", "Does everything", function(v)
+        getgenv().allfarm = v
         while true do
-            if not getgenv().buybelts then return end
+            if not getgenv().allfarm then return end
             local A_1 = "Auto farm all"
 local args = {
     [1] = "collectOrb",
@@ -102,7 +102,7 @@ game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
 local A_1 = "rebirthRequest"
 local Event = game:GetService("ReplicatedStorage").rEvents.rebirthEvent
 Event:FireServer(A_1)
- wait(5)
+ wait(0)
         end
     end)
 end
