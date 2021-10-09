@@ -106,3 +106,33 @@ Event:FireServer(A_1)
         end
     end)
 end
+
+elseif game.PlaceId == 6276776106 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SleepyThug/SleepyCode/main/Code"))()
+    local Window = Library.CreateLib("EGX3 AUTO FARM", "Sentinel")
+ 
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+ 
+    MainSection:NewToggle("Auto farm levels", "Levels up", function(v)
+        getgenv().levelfarm = v
+        while true do
+            if not getgenv().levelfarm then return end
+            for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v:FindFirstChild("EGX3") then
+                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    break
+                end
+            end
+ 
+local A_1 = game:GetService("Players")["Sleepy_Thug"]
+local Event = game:GetService("ReplicatedStorage").Remotes.ChangeLevelEvent
+Event:FireServer(A_1)
+
+            wait(0)
+        
+        end
+    end)
+end
+  
